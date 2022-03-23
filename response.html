@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bonus by MJ</title>
+</head>
+<body>
+    <h2>Jaichand Mulakalapalli gives couple of details on Sarah</h2>
+    <form>
+        <label for="html">To know interesting facts about Sarah Hyland</label><br>
+        <input type="button" class="btn btn-outline-success" onclick="bonusOp()" value="Click here">
+    </form>
+    <div class="container" id="result"> Information is displayed here.</div>
+    <script>
+        function bonusOp() {
+            const url = `http://127.0.0.1:3001/`;
+            fetch(url).then((resp) => { return resp.text() }).then(text => {
+                console.log(text);
+                document.getElementById("result").innerHTML = text;
+            }).catch(error => {
+                document.getElementById("result").innerHTML = error;
+            })
+        }
+    </script>
+</body>
+</html>
