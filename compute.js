@@ -31,7 +31,7 @@ const server =
           // Process the queries here
           res.statusCode = 200      //code for OK
           res.setHeader('Content-Type', 'text/plain')
-          res.write("\"f = uses Math.fround & g = uses Math.random\"\n")
+          res.write("\"f = uses Math.fround & g = uses Math.random\" ")
           res.write(`f(${x}) is ${fx}, f(${y}) is ${fy} and g(${x},${y}) is ${gxy}`)
           res.end();
         

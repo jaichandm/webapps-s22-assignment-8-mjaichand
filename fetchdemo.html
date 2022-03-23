@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Fetch Demo by MJ</title>
+</head>
+
+<body>
+    <h2>Jaichand Mulakalapalli works with functions</h2>
+    <form>
+        <input type="number" id="inputx" name="inputx">
+        <input type="number" id="inputy" name="inputy">
+        <input type="button" class="btn btn-outline-success" onclick="fetchOp()" value="Compute on the Server">
+    </form>
+    <div class="container" id="result"> Your Results are displayed here.</div>
+    <script>
+        function fetchOp() {
+            x = document.getElementById("inputx").value;
+            y = document.getElementById("inputy").value;
+            const url = `http://127.0.0.1:3001/?x=${x}&y=${y}`;
+            fetch(url).then((resp) => { return resp.text() }).then(text => {
+                console.log(text);
+                document.getElementById("result").innerHTML = text;
+            }).catch(error => {
+                document.getElementById("result").innerHTML = error;
+            })
+        }
+    </script>
+</body>
+
+</html>
